@@ -8,11 +8,20 @@
         android:theme="@style/Theme.Poowall">
 
         <activity
+            android:name=".SettingsActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".RedirectActivity"
             android:exported="true"
             android:excludeFromRecents="true"
             android:noHistory="true"
-            android:theme="@android:style/Theme.NoDisplay">
+            android:theme="@android:style/Theme.Material.Light.Dialog.NoActionBar">
 
             <!-- Show up as a browser option when opening links -->
             <intent-filter>
