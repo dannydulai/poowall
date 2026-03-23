@@ -11,6 +11,8 @@ public class RedirectActivity extends Activity {
 
     private static final String PREFIX_REMOVEPAYWALL = "https://removepaywall.com/";
     private static final String PREFIX_REMOVEPAYWALLS = "https://removepaywalls.com/";
+    private static final String PREFIX_PAYWALLBUSTER = "https://paywallbuster.com/";
+    private static final String PREFIX_PAYWALLSKIP = "https://paywallskip.com/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,12 @@ public class RedirectActivity extends Activity {
             case SettingsActivity.MODE_REMOVEPAYWALLS:
                 openProxied(PREFIX_REMOVEPAYWALLS + url);
                 break;
+            case SettingsActivity.MODE_PAYWALLBUSTER:
+                openProxied(PREFIX_PAYWALLBUSTER + url);
+                break;
+            case SettingsActivity.MODE_PAYWALLSKIP:
+                openProxied(PREFIX_PAYWALLSKIP + url);
+                break;
             case SettingsActivity.MODE_CUSTOM:
                 String custom = prefs.getString(SettingsActivity.KEY_CUSTOM_URL, "");
                 openProxied(custom + url);
@@ -45,8 +53,8 @@ public class RedirectActivity extends Activity {
     }
 
     private void showPicker(String url) {
-        String[] options = {"removepaywall.com", "removepaywalls.com"};
-        String[] prefixes = {PREFIX_REMOVEPAYWALL, PREFIX_REMOVEPAYWALLS};
+        String[] options = {"removepaywall.com", "removepaywalls.com", "paywallbuster.com", "paywallskip.com"};
+        String[] prefixes = {PREFIX_REMOVEPAYWALL, PREFIX_REMOVEPAYWALLS, PREFIX_PAYWALLBUSTER, PREFIX_PAYWALLSKIP};
 
         new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert)
                 .setTitle("Choose service")

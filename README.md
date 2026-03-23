@@ -6,7 +6,7 @@ A tiny Android app that redirects URLs through paywall removal services. Select 
 
 - Appears as a browser option when tapping links
 - Accepts URLs via the share sheet
-- Configurable service: [removepaywall.com](https://removepaywall.com), [removepaywalls.com](https://removepaywalls.com), ask every time, or a custom URL prefix
+- Configurable service: [removepaywall.com](https://removepaywall.com), [removepaywalls.com](https://removepaywalls.com), [paywallbuster.com](https://paywallbuster.com), [paywallskip.com](https://paywallskip.com), ask every time, or a custom URL prefix
 - No UI beyond the settings screen — redirects are instant and invisible
 
 ## Build

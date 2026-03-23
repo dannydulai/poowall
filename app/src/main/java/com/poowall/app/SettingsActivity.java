@@ -19,6 +19,8 @@ public class SettingsActivity extends Activity {
 
     public static final String MODE_REMOVEPAYWALL = "removepaywall";
     public static final String MODE_REMOVEPAYWALLS = "removepaywalls";
+    public static final String MODE_PAYWALLBUSTER = "paywallbuster";
+    public static final String MODE_PAYWALLSKIP = "paywallskip";
     public static final String MODE_ASK = "ask";
     public static final String MODE_CUSTOM = "custom";
 
@@ -47,6 +49,12 @@ public class SettingsActivity extends Activity {
             case MODE_REMOVEPAYWALLS:
                 radioGroup.check(R.id.radio_removepaywalls);
                 break;
+            case MODE_PAYWALLBUSTER:
+                radioGroup.check(R.id.radio_paywallbuster);
+                break;
+            case MODE_PAYWALLSKIP:
+                radioGroup.check(R.id.radio_paywallskip);
+                break;
             case MODE_ASK:
                 radioGroup.check(R.id.radio_ask);
                 break;
@@ -66,6 +74,12 @@ public class SettingsActivity extends Activity {
                 customUrlInput.setVisibility(View.GONE);
             } else if (checkedId == R.id.radio_removepaywalls) {
                 newMode = MODE_REMOVEPAYWALLS;
+                customUrlInput.setVisibility(View.GONE);
+            } else if (checkedId == R.id.radio_paywallbuster) {
+                newMode = MODE_PAYWALLBUSTER;
+                customUrlInput.setVisibility(View.GONE);
+            } else if (checkedId == R.id.radio_paywallskip) {
+                newMode = MODE_PAYWALLSKIP;
                 customUrlInput.setVisibility(View.GONE);
             } else if (checkedId == R.id.radio_ask) {
                 newMode = MODE_ASK;

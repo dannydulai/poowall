@@ -49,6 +49,26 @@
             android:padding="8dp" />
 
         <RadioButton
+            android:id="@+id/radio_paywallbuster"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="paywallbuster.com"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:buttonTint="#dc2828"
+            android:padding="8dp" />
+
+        <RadioButton
+            android:id="@+id/radio_paywallskip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="paywallskip.com"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:buttonTint="#dc2828"
+            android:padding="8dp" />
+
+        <RadioButton
             android:id="@+id/radio_ask"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
