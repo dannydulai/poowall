@@ -1,118 +1,249 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="24dp"
-    android:background="#1a1a1a">
+    android:background="#faf8ff"
+    android:fillViewport="true"
+    android:focusableInTouchMode="true">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Poowall"
-        android:textSize="28sp"
-        android:textColor="#ffffff"
-        android:textStyle="bold"
-        android:layout_marginBottom="8dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Choose paywall removal service"
-        android:textSize="14sp"
-        android:textColor="#aaaaaa"
-        android:layout_marginBottom="24dp" />
-
-    <RadioGroup
-        android:id="@+id/radio_group"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <RadioButton
-            android:id="@+id/radio_removepaywall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="removepaywall.com"
-            android:textColor="#ffffff"
-            android:textSize="16sp"
-            android:buttonTint="#dc2828"
-            android:padding="8dp" />
-
-        <RadioButton
-            android:id="@+id/radio_removepaywalls"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="removepaywalls.com"
-            android:textColor="#ffffff"
-            android:textSize="16sp"
-            android:buttonTint="#dc2828"
-            android:padding="8dp" />
-
-        <RadioButton
-            android:id="@+id/radio_paywallbuster"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="paywallbuster.com"
-            android:textColor="#ffffff"
-            android:textSize="16sp"
-            android:buttonTint="#dc2828"
-            android:padding="8dp" />
-
-        <RadioButton
-            android:id="@+id/radio_paywallskip"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="paywallskip.com"
-            android:textColor="#ffffff"
-            android:textSize="16sp"
-            android:buttonTint="#dc2828"
-            android:padding="8dp" />
-
-        <RadioButton
-            android:id="@+id/radio_ask"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ask every time"
-            android:textColor="#ffffff"
-            android:textSize="16sp"
-            android:buttonTint="#dc2828"
-            android:padding="8dp" />
-
-        <RadioButton
-            android:id="@+id/radio_custom"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Custom URL prefix"
-            android:textColor="#ffffff"
-            android:textSize="16sp"
-            android:buttonTint="#dc2828"
-            android:padding="8dp" />
-
-    </RadioGroup>
-
-    <EditText
-        android:id="@+id/custom_url_input"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="https://example.com/"
-        android:textColor="#ffffff"
-        android:textColorHint="#666666"
-        android:backgroundTint="#dc2828"
-        android:textSize="14sp"
-        android:inputType="textUri"
-        android:visibility="gone"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="4dp"
-        android:padding="8dp" />
+        android:orientation="vertical"
+        android:paddingTop="24dp"
+        android:paddingBottom="48dp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp">
 
-    <TextView
-        android:id="@+id/status_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Saved"
-        android:textColor="#4caf50"
-        android:textSize="14sp"
-        android:visibility="invisible"
-        android:layout_marginTop="16dp" />
+        <!-- Top Bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="32dp">
 
-</LinearLayout>
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_header"
+                android:layout_marginEnd="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textSize="28sp"
+                android:textColor="#4755b6"
+                android:textStyle="bold"
+                android:letterSpacing="-0.03" />
+        </LinearLayout>
+
+        <!-- Selection Mode Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SELECTION MODE"
+            android:textSize="11sp"
+            android:textColor="#4755b6"
+            android:textStyle="bold"
+            android:letterSpacing="0.05" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Prompt for engine choice on every link."
+            android:textSize="13sp"
+            android:textColor="#575f74"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="12dp" />
+
+        <LinearLayout
+            android:id="@+id/ask_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card_pill"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingStart="16dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:layout_marginBottom="32dp">
+
+            <RadioButton
+                android:id="@+id/radio_ask"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#4755b6"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ask every time"
+                android:textColor="#2b3245"
+                android:textSize="15sp"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp" />
+        </LinearLayout>
+
+        <!-- Paywall Removal Service Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PAYWALL REMOVAL SERVICE"
+            android:textSize="11sp"
+            android:textColor="#4755b6"
+            android:textStyle="bold"
+            android:letterSpacing="0.05" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select which bypass engine is used."
+            android:textSize="13sp"
+            android:textColor="#575f74"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="12dp" />
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card_rounded"
+            android:paddingStart="16dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginBottom="32dp">
+
+            <RadioButton
+                android:id="@+id/radio_removepaywall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="removepaywall.com"
+                android:textColor="#2b3245"
+                android:textSize="15sp"
+                android:buttonTint="#4755b6"
+                android:padding="16dp" />
+
+            <RadioButton
+                android:id="@+id/radio_removepaywalls"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="removepaywalls.com"
+                android:textColor="#2b3245"
+                android:textSize="15sp"
+                android:buttonTint="#4755b6"
+                android:padding="16dp" />
+
+            <RadioButton
+                android:id="@+id/radio_paywallbuster"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="paywallbuster.com"
+                android:textColor="#2b3245"
+                android:textSize="15sp"
+                android:buttonTint="#4755b6"
+                android:padding="16dp" />
+
+            <RadioButton
+                android:id="@+id/radio_paywallskip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="paywallskip.com"
+                android:textColor="#2b3245"
+                android:textSize="15sp"
+                android:buttonTint="#4755b6"
+                android:padding="16dp" />
+        </RadioGroup>
+
+        <!-- Custom URL Prefix Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CUSTOM URL PREFIX"
+            android:textSize="11sp"
+            android:textColor="#4755b6"
+            android:textStyle="bold"
+            android:letterSpacing="0.05" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Use a private or self-hosted proxy service."
+            android:textSize="13sp"
+            android:textColor="#575f74"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="12dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card_pill"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp">
+
+            <RadioButton
+                android:id="@+id/radio_custom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#4755b6"
+                android:layout_marginEnd="8dp" />
+
+            <EditText
+                android:id="@+id/custom_url_input"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="https://myproxy.com/?url="
+                android:textColor="#2b3245"
+                android:textColorHint="#80575f74"
+                android:textSize="14sp"
+                android:inputType="textUri"
+                android:background="@null"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp" />
+        </LinearLayout>
+
+        <!-- Build Info -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card_pill_bordered"
+            android:orientation="vertical"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:layout_marginTop="48dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BUILD VERSION"
+                android:textSize="10sp"
+                android:textColor="#5f5e62"
+                android:textStyle="bold"
+                android:letterSpacing="0.1" />
+
+            <TextView
+                android:id="@+id/version_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:textColor="#2b3245"
+                android:textStyle="bold"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
